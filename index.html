@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            for(var i=0; i<151; i++){
+                $('#pokeDiv').append(`<img id="${i}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${i}.png"> `); 
+            }
+
+
+            $(document).on("click", "img", function(){
+                var id = this.id;
+                $.get("https://pokeapi.co/api/v2/pokemon/"+id, function(res) {
+                        console.log(res);
+                        var html_str = "";
+                        html_str += "<h2>Name: " + res.name + "</h2>";
+                        html_str += `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png"> `;
+                        html_str += "<p>Height: " + res.height + "</p>";
+                        html_str += "<p>Weight: " + res.weight + "</p>";
+                        html_str += "<h4>Types:</h4>";
+                        html_str += "<ul>";
+                        for (var m = 0; m< res.types.length; m++) {
+                            html_str += "<li>" + res.types[m].type.name + "</li>";
+                        }
+                        html_str += "</ul>";
+                        $("#infoDiv").html(html_str);
+                    }, "json");
+
+            });
+               
+        });
+    
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="pokeDiv">
+            <h1>Click on a Pokemon to find out more info</h1>
+            <!-- pokepics go here -->
+        </div>
+        <div id="infoDiv">
+            <!-- <p>poke info goes here</p> -->
+            <!-- poke info goes here -->
+        </div>
+    </div>
+</body>
+</html>

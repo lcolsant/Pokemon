@@ -1,0 +1,46 @@
+* {
+    margin:0;
+    padding:0;
+    border:0;
+    font-family: Arial;
+}
+
+#container {
+    outline: 1px dotted blue;
+    width: 11120px;
+    /* height: 800px; */
+    margin: 20px auto;
+
+}
+#pokeDiv {
+    outline: 1px dotted purple;
+    width: 800px;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top; 
+
+}
+
+#infoDiv {
+    outline: 1px dotted red;
+    width: 250px;
+    height: 350px;
+    border: 8px solid red;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top; 
+    padding-left: 25px;
+
+}
+
+#infoDiv p {
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 500;
+
+
+}
+
+ul li {
+    margin-left: 20px;
+}
